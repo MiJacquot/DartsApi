@@ -1,0 +1,18 @@
+package com.example.dartsapi.controllers;
+
+import com.example.dartsapi.dto.user.UserLoginDTO;
+import com.example.dartsapi.services.UserService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class LoginController {
+
+    private UserService us = new UserService();
+
+    @PostMapping(path = "/login", consumes = "application/json")
+    public boolean canAccess(@RequestBody UserLoginDTO dto) {
+        return us.authenticate(dto.getUsername(), dto.getPassword());
+    }
+}

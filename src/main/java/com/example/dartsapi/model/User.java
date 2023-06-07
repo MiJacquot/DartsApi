@@ -1,17 +1,25 @@
 package com.example.dartsapi.model;
 
+import com.example.dartsapi.entities.UserEntity;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 
-    public User(String id, String username, String password, List<Player> playerIds) {
+    public User(String id, String username, String password, List<Player> players) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.playerIds = playerIds;
+        this.players = players;
     }
 
+
+
+
+
     public User() {
+        this.players = new ArrayList<>();
     }
 
     private String id;
@@ -20,7 +28,7 @@ public class User {
 
     private String password;
 
-    private List<Player> playerIds;
+    private List<Player> players;
 
     public String getId() {
         return id;
@@ -46,11 +54,11 @@ public class User {
         this.password = password;
     }
 
-    public List<Player> getPlayerIds() {
-        return playerIds;
+    public List<Player> getPlayers() {
+        return players;
     }
 
-    public void setPlayerIds(List<Player> playerIds) {
-        this.playerIds = playerIds;
+    public void setPlayers(List<Player> playerIds) {
+        this.players = players;
     }
 }

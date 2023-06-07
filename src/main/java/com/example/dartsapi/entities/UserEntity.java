@@ -15,6 +15,7 @@ public class UserEntity {
     }
 
     public UserEntity() {
+        this.playerIds = new ArrayList<>();
     }
 
     private ObjectId id;
@@ -41,11 +42,11 @@ public class UserEntity {
         this.password = password;
     }
 
-    public List<ObjectId> getPlayers() {
+    public List<ObjectId> getPlayerIds() {
         return playerIds;
     }
 
-    public void setPlayers(List<ObjectId> playerIds) {
+    public void setPlayerIds(List<ObjectId> playerIds) {
         this.playerIds = playerIds;
     }
 

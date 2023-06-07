@@ -37,11 +37,11 @@ public class UserCreateUpdateDTO {
         this.password = password;
     }
 
-    public List<Player> getPlayerIds() {
+    public List<Player> getPlayers() {
         return players;
     }
 
-    public void setPlayerIds(List<Player> playerIds) {
+    public void setPlayers(List<Player> playerIds) {
         this.players = playerIds;
     }
 }

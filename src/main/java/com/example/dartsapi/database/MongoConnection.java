@@ -1,6 +1,10 @@
 package com.example.dartsapi.database;
 
 
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.ServerApi;
+import com.mongodb.ServerApiVersion;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -10,12 +14,25 @@ public final class MongoConnection {
         private static MongoConnection instance;
         public MongoDatabase database;
         private MongoConnection() {
-            try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-                database = mongoClient.getDatabase("DartsAppCluster");
-            }
-        }
+            ServerApi serverApi = ServerApi.builder()
+                    .version(ServerApiVersion.V1)
+                    .build();
+            MongoClientSettings settings = MongoClientSettings.builder()
+                    .applyConnectionString(new ConnectionString(connectionString))
+                    .serverApi(serverApi)
+                    .build();
+            // Create a new client and connect to the server
+            MongoClient mongoClient = MongoClients.create(settings);
+                try {
+                    database = mongoClient.getDatabase("DartsAppCluster");
+                } catch (Exception e) {
+                    mongoClient.close();
+                    throw new RuntimeException(e);
 
-        public static com.example.dartsapi.database.MongoConnection getInstance() {
+                }
+            }
+
+        public static synchronized MongoConnection getInstance() {
             if (instance == null) {
                 instance = new MongoConnection();
             }
