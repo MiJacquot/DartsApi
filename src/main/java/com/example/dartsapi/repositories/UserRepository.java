@@ -4,6 +4,10 @@ import com.example.dartsapi.database.MongoConnection;
 import com.example.dartsapi.entities.UserEntity;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.FindOneAndUpdateOptions;
+import com.mongodb.client.model.ReturnDocument;
+import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.InsertOneResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -41,6 +45,13 @@ public class UserRepository {
         InsertOneResult result = userRepository.insertOne(userEntityToDocument(toAdd));
         toAdd.setId(Objects.requireNonNull(result.getInsertedId()).asObjectId().getValue());
         return toAdd;
+    }
+
+    public boolean addOnePlayerToUser(String userId, String playerId) {
+        Bson filter = Filters.eq("_id", new ObjectId(userId));
+        Bson update = Updates.push("players", playerId);
+        Document result = userRepository.findOneAndUpdate(filter, update);
+        return true;
     }
 
     public boolean checkIfUserExists(String username, String password) {

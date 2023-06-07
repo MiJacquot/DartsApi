@@ -17,6 +17,7 @@ public class GameCreateUpdateDTO {
     public GameCreateUpdateDTO() {
     }
 
+    private String userId;
     private Date date;
 
     private List<Score> scores;
@@ -55,5 +56,13 @@ public class GameCreateUpdateDTO {
 
     public void setNumPlayerRound(int numPlayerRound) {
         this.numPlayerRound = numPlayerRound;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

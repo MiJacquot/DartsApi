@@ -18,6 +18,8 @@ public class Game {
 
     private String id;
 
+    private String userId;
+
     private Date date;
 
     private List<Score> scores;
@@ -64,5 +66,13 @@ public class Game {
 
     public void setNumPlayerRound(int numPlayerRound) {
         this.numPlayerRound = numPlayerRound;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

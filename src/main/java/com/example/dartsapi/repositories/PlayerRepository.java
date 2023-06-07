@@ -5,7 +5,10 @@ import com.example.dartsapi.entities.PlayerEntity;
 import com.example.dartsapi.entities.UserEntity;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.InsertOneResult;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
@@ -33,8 +36,13 @@ public class PlayerRepository {
         return mapDocumentToEntity(Objects.requireNonNull(playerRepository.find(eq("_id", new ObjectId(Id))).first()), PlayerEntity.class);
     }
 
-    public PlayerEntity addOne(PlayerEntity toAdd) {
-        playerRepository.insertOne(playerEntityToDocument(toAdd));
-        return toAdd;
+    public ObjectId addOne(PlayerEntity toAdd) {
+        InsertOneResult result = playerRepository.insertOne(playerEntityToDocument(toAdd));
+        return result.getInsertedId().asObjectId().getValue();
+    }
+
+    public boolean deleteOne(String id) {
+        DeleteResult result = playerRepository.deleteOne(eq("_id", new ObjectId(id)));
+        return result.getDeletedCount() != 0;
     }
 }

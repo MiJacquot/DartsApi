@@ -20,6 +20,8 @@ public class GameEntity {
 
     private ObjectId id;
 
+    private ObjectId userId;
+
     private Date date;
 
     private List<ScoreEntity> scores;
@@ -66,5 +68,13 @@ public class GameEntity {
 
     public void setNumPlayerRound(int numPlayerRound) {
         this.numPlayerRound = numPlayerRound;
+    }
+
+    public ObjectId getUserId() {
+        return userId;
+    }
+
+    public void setUserId(ObjectId userId) {
+        this.userId = userId;
     }
 }
