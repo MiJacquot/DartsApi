@@ -19,10 +19,11 @@ public class PlayerController {
     public boolean addPlayer(@PathVariable("userId") String id, @RequestBody PlayerCreateUpdateDTO dto) {
 
         String isCreated = playerService.addOne(dto);
+        boolean userIsUpdated = false;
         if (isCreated != null) {
-            userService.addOnePlayerToUser(id, isCreated);
+            userIsUpdated = userService.addOnePlayerToUser(id, isCreated);
         }
-        return true;
+        return userIsUpdated;
     }
 
     @DeleteMapping(path = "/players/{id}")

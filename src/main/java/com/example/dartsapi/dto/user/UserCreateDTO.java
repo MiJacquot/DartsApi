@@ -4,15 +4,9 @@ import com.example.dartsapi.model.Player;
 
 import java.util.List;
 
-public class UserCreateUpdateDTO {
+public class UserCreateDTO {
 
-    public UserCreateUpdateDTO(String username, String password, List<Player> players) {
-        this.username = username;
-        this.password = password;
-        this.players = players;
-    }
-
-    public UserCreateUpdateDTO() {
+    public UserCreateDTO() {
     }
 
     private String username;

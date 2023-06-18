@@ -20,9 +20,9 @@ public class GameEntity {
 
     private ObjectId id;
 
-    private ObjectId userId;
-
     private Date date;
+
+    private UserEntity userEntity;
 
     private List<ScoreEntity> scores;
 
@@ -70,11 +70,11 @@ public class GameEntity {
         this.numPlayerRound = numPlayerRound;
     }
 
-    public ObjectId getUserId() {
-        return userId;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setUserId(ObjectId userId) {
-        this.userId = userId;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 }

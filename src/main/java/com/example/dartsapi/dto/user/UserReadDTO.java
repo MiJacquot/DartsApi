@@ -4,12 +4,7 @@ import com.example.dartsapi.model.Player;
 
 import java.util.List;
 
-public class UserReadDTO extends UserCreateUpdateDTO {
-
-    public UserReadDTO(String username, String password, List<Player> players, String id) {
-        super(username, password, players);
-        this.id = id;
-    }
+public class UserReadDTO extends UserCreateDTO {
 
     public UserReadDTO() {
         super();

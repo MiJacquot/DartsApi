@@ -1,5 +1,6 @@
 package com.example.dartsapi.dto.game;
 
+import com.example.dartsapi.dto.user.UserReadDTO;
 import com.example.dartsapi.model.Score;
 
 import java.util.Date;
@@ -17,10 +18,11 @@ public class GameCreateUpdateDTO {
     public GameCreateUpdateDTO() {
     }
 
-    private String userId;
     private Date date;
 
     private List<Score> scores;
+
+    private UserReadDTO userDTO;
 
     private String status;
 
@@ -58,11 +60,11 @@ public class GameCreateUpdateDTO {
         this.numPlayerRound = numPlayerRound;
     }
 
-    public String getUserId() {
-        return userId;
+    public UserReadDTO getUserDTO() {
+        return userDTO;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserDTO(UserReadDTO userDTO) {
+        this.userDTO = userDTO;
     }
 }

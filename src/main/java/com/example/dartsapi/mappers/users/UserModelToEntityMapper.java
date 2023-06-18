@@ -9,6 +9,9 @@ public class UserModelToEntityMapper {
 
     public static UserEntity userModelToEntity(User user) {
         UserEntity entity = new UserEntity();
+        if (user.getId() != null) {
+            entity.setId(new ObjectId(user.getId()));
+        }
         entity.setUsername(user.getUsername());
         entity.setPassword(user.getPassword());
         for (Player player : user.getPlayers()) {

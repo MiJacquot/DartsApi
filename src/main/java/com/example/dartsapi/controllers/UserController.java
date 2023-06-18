@@ -1,11 +1,10 @@
 package com.example.dartsapi.controllers;
 
-import com.example.dartsapi.dto.user.UserCreateUpdateDTO;
+import com.example.dartsapi.dto.user.UserCreateDTO;
+import com.example.dartsapi.dto.user.UserLoginDTO;
 import com.example.dartsapi.dto.user.UserReadDTO;
 import com.example.dartsapi.services.UserService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static com.example.dartsapi.mappers.users.UserToDTOMapper.userToReadDTO;
 
@@ -21,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping(path = "users/add")
-    public UserReadDTO createOne(@RequestBody() UserCreateUpdateDTO dto) {
+    public UserReadDTO createOne(@RequestBody UserCreateDTO dto) {
         return us.addOne(dto);
     }
 

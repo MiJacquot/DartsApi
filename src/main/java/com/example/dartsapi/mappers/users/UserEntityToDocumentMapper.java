@@ -7,9 +7,15 @@ public class UserEntityToDocumentMapper {
 
     public static Document userEntityToDocument(UserEntity entity) {
         Document document = new Document();
+        if (entity.getId() != null) {
+            document.put("_id", entity.getId());
+        }
         document.put("username", entity.getUsername());
         document.put("password", entity.getPassword());
-        document.put("playerIds", entity.getPlayerIds());
+        if (entity.getPlayerIds() != null) {
+            document.put("playerIds", entity.getPlayerIds());
+        }
+
         return document;
     }
 }

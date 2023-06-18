@@ -1,12 +1,12 @@
 package com.example.dartsapi.mappers.users;
 
-import com.example.dartsapi.dto.user.UserCreateUpdateDTO;
+import com.example.dartsapi.dto.user.UserCreateDTO;
 import com.example.dartsapi.model.Player;
 import com.example.dartsapi.model.User;
 
 public class UserDTOToUserMapper {
 
-    public static User createDtoToUser(UserCreateUpdateDTO dto) {
+    public static User createDtoToUser(UserCreateDTO dto) {
         User user = new User();
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());

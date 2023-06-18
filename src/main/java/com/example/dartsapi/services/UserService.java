@@ -1,7 +1,7 @@
 package com.example.dartsapi.services;
 
 
-import com.example.dartsapi.dto.user.UserCreateUpdateDTO;
+import com.example.dartsapi.dto.user.UserCreateDTO;
 import com.example.dartsapi.dto.user.UserReadDTO;
 import com.example.dartsapi.entities.UserEntity;
 import com.example.dartsapi.mappers.users.UserEntityToModelMapper;
@@ -32,7 +32,7 @@ public class UserService {
         return mapper.userEntityToUser(result);
     }
 
-    public UserReadDTO addOne(UserCreateUpdateDTO dto) {
+    public UserReadDTO addOne(UserCreateDTO dto) {
         UserEntityToModelMapper mapper = new UserEntityToModelMapper(playerRepository);
         User userToAdd = createDtoToUser(dto);
         UserEntity result = this.userRepository.addOne(userModelToEntity(userToAdd));
@@ -41,7 +41,7 @@ public class UserService {
     }
 
     public boolean addOnePlayerToUser(String userId, String playerId) {
-        return  userRepository.addOnePlayerToUser(userId, playerId);
+        return userRepository.addOnePlayerToUser(userId, playerId);
     }
 
     public boolean authenticate(String username, String password) {

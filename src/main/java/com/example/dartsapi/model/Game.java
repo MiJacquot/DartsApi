@@ -18,9 +18,9 @@ public class Game {
 
     private String id;
 
-    private String userId;
-
     private Date date;
+
+    private User user;
 
     private List<Score> scores;
 
@@ -68,11 +68,11 @@ public class Game {
         this.numPlayerRound = numPlayerRound;
     }
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
