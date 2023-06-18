@@ -2,11 +2,11 @@ package com.example.dartsapi.model;
 
 public class Score {
 
-    public Score(String id, String playerName, int score, int numPLayer) {
+    public Score(String id, String playerName, int score, int numPlayer) {
         this.id = id;
         this.playerName = playerName;
         this.score = score;
-        this.numPLayer = numPLayer;
+        this.numPlayer = numPlayer;
     }
 
     public Score() {
@@ -18,7 +18,7 @@ public class Score {
 
     private int score;
 
-    private int numPLayer;
+    private int numPlayer;
 
     public String getId() {
         return id;
@@ -44,11 +44,11 @@ public class Score {
         this.score = score;
     }
 
-    public int getNumPLayer() {
-        return numPLayer;
+    public int getNumPlayer() {
+        return numPlayer;
     }
 
-    public void setNumPLayer(int numPLayer) {
-        this.numPLayer = numPLayer;
+    public void setNumPlayer(int numPlayer) {
+        this.numPlayer = numPlayer;
     }
 }

@@ -21,7 +21,12 @@ import static com.mongodb.client.model.Indexes.ascending;
 
 public class GameRepository {
 
-    private final MongoCollection<Document> gameRepository = MongoConnection.getInstance().database.getCollection("game");
+    private final MongoCollection<Document> gameRepository;
+
+    public GameRepository() {
+        gameRepository = MongoConnection.getInstance().database.getCollection("game");
+        gameRepository.createIndex(ascending("date"));
+    }
 
     // we do not use some queries, but we need to show that we can di it if necessary ^^
     public List<GameEntity> findAllByUser(UserEntity user) {

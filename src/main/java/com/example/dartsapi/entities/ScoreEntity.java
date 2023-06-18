@@ -4,11 +4,11 @@ import org.bson.types.ObjectId;
 
 public class ScoreEntity {
 
-    public ScoreEntity(ObjectId id, String playerName, int score, int numPLayer) {
+    public ScoreEntity(ObjectId id, String playerName, int score, int numPlayer) {
         this.id = id;
         this.playerName = playerName;
         this.score = score;
-        this.numPLayer = numPLayer;
+        this.numPlayer = numPlayer;
     }
 
     public ScoreEntity() {
@@ -20,7 +20,7 @@ public class ScoreEntity {
 
     private int score;
 
-    private int numPLayer;
+    private int numPlayer;
 
     public ObjectId getId() {
         return id;
@@ -46,11 +46,11 @@ public class ScoreEntity {
         this.score = score;
     }
 
-    public int getNumPLayer() {
-        return numPLayer;
+    public int getNumPlayer() {
+        return numPlayer;
     }
 
-    public void setNumPLayer(int numPLayer) {
-        this.numPLayer = numPLayer;
+    public void setNumPlayer(int numPLayer) {
+        this.numPlayer = numPLayer;
     }
 }

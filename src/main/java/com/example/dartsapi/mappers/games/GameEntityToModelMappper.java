@@ -10,7 +10,8 @@ import com.example.dartsapi.services.UserService;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.dartsapi.mappers.scores.ScoreEntityToModelMapper.scoreModelToEntity;
+import static com.example.dartsapi.mappers.scores.ScoreEntityToModelMapper.scoreEntityToModel;
+
 
 public class GameEntityToModelMappper {
 
@@ -22,7 +23,7 @@ public class GameEntityToModelMappper {
             game.setId(entity.getId().toHexString());
             List<Score> scores = new ArrayList<>();
             entity.getScores().forEach(scoreEntity -> {
-                scores.add(scoreModelToEntity(scoreEntity));
+                scores.add(scoreEntityToModel(scoreEntity));
             });
             game.setScores(scores);
             game.setNumPlayerRound(entity.getNumPlayerRound());

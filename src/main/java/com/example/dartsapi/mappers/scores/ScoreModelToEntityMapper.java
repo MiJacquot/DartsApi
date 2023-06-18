@@ -12,7 +12,7 @@ public class ScoreModelToEntityMapper {
             entity.setId(new ObjectId(score.getId()));
         }
         entity.setScore(score.getScore());
-        entity.setNumPLayer(score.getNumPLayer());
+        entity.setNumPlayer(score.getNumPlayer());
         entity.setPlayerName(score.getPlayerName());
         return entity;
     }
