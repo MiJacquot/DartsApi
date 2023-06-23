@@ -54,6 +54,16 @@ public class UserRepository {
         return true;
     }
 
+    public UserEntity getUserByUsername(String username) {
+        Bson matchUsernameStage = match(eq("username", username));
+        Document result = userRepository.aggregate(asList(matchUsernameStage)).first();
+        if(result != null) {
+            return mapDocumentToEntity(result, UserEntity.class);
+        } else {
+            return null;
+        }
+    }
+
     public boolean checkIfUserExists(String username, String password) {
         Bson matchUsernameStage = match(eq("username", username));
         Bson matchPasswordStage = match(eq("password", password));

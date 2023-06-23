@@ -21,13 +21,15 @@ public class UserService {
     private final UserRepository userRepository;
     private final PlayerRepository playerRepository;
 
+    private UserEntityToModelMapper mapper;
+
     public UserService() {
         this.userRepository = new UserRepository();
         this.playerRepository = new PlayerRepository();
+        this.mapper = new UserEntityToModelMapper(playerRepository);
     }
 
     public User findOneById(String id) {
-        UserEntityToModelMapper mapper = new UserEntityToModelMapper(playerRepository);
         UserEntity result = this.userRepository.findOneById(id);
         return mapper.userEntityToUser(result);
     }
@@ -42,6 +44,10 @@ public class UserService {
 
     public boolean addOnePlayerToUser(String userId, String playerId) {
         return userRepository.addOnePlayerToUser(userId, playerId);
+    }
+
+    public User getOneByUsername(String username) {
+        return mapper.userEntityToUser(userRepository.getUserByUsername(username));
     }
 
     public boolean authenticate(String username, String password) {

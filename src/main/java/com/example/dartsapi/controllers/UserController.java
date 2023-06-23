@@ -19,6 +19,11 @@ public class UserController {
         return userToReadDTO(us.findOneById(id));
     }
 
+    @GetMapping(path = "users/username/{username}")
+    public UserReadDTO getOneByUsername(@PathVariable("username") String username) {
+        return userToReadDTO(us.getOneByUsername(username));
+    }
+
     @PostMapping(path = "users/add")
     public UserReadDTO createOne(@RequestBody UserCreateDTO dto) {
         return us.addOne(dto);
