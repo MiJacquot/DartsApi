@@ -14,7 +14,7 @@ public class GameModelToGameDTOMapper {
         if (game.getId() != null) {
             game.setId(game.getId());
         }
-        gameDTO.setUserDTO(userToReadDTO(game.getUser()));
+        gameDTO.setUserId(game.getUserId());
         gameDTO.setDate(game.getDate());
         gameDTO.setScores(game.getScores());
         gameDTO.setStatus(game.getStatus());

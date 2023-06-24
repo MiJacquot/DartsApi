@@ -18,8 +18,7 @@ public class GameEntityToModelMappper {
     private static UserService service = new UserService();
         public static Game gameEntityToGame (GameEntity entity) {
             Game game = new Game();
-            User userToAdd = service.findOneById(entity.getUserEntity().getId().toHexString());
-            game.setUser(userToAdd);
+            game.setUserId(entity.getUserId().toHexString());
             game.setId(entity.getId().toHexString());
             List<Score> scores = new ArrayList<>();
             entity.getScores().forEach(scoreEntity -> {

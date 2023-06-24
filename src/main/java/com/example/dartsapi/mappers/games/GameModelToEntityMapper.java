@@ -19,7 +19,7 @@ public class GameModelToEntityMapper {
         if (game.getId() != null) {
             entity.setId(new ObjectId(game.getId()));
         }
-        entity.setUserEntity(userModelToEntity(game.getUser()));
+        entity.setUserId(new ObjectId(game.getUserId()));
         entity.setDate(game.getDate());
         List<ScoreEntity> scoreEntityList = new ArrayList<>();
         for (Score score : game.getScores()) {
