@@ -22,11 +22,10 @@ public class GameController {
     private final GameService gameService = new GameService();
     private final UserService userService = new UserService();
 
-    @GetMapping(path = "games/list/{username}")
-    public List<GameReadDTO> findAll(@PathVariable("username") String username) {
-        User loggedUser = userService.getOneByUsername(username);
+    @GetMapping(path = "games/list/{userId}")
+    public List<GameReadDTO> findAll(@PathVariable("userId") String userId) {
         List<GameReadDTO> gamesDTO = new ArrayList<>();
-        List<Game> games = gameService.findAllByUser(loggedUser.getId());
+        List<Game> games = gameService.findAllByUserId(userId);
         games.forEach((game) -> {
             gamesDTO.add(gameModelToDto(game));
         });
