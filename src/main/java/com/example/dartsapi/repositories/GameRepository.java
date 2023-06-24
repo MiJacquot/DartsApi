@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import static com.example.dartsapi.mappers.DocumentToEntityMapper.mapDocumentToEntity;
 import static com.example.dartsapi.mappers.games.GameEntityToDocumentMapper.gameEntityToDocument;
+import static com.example.dartsapi.mappers.scores.ScoreEntityToDocument.scoreEntityToDocument;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Indexes.ascending;
 
@@ -35,6 +36,11 @@ public class GameRepository {
     }
     public ObjectId addOne(GameEntity toAdd) {
         Document document = gameEntityToDocument(toAdd);
+        List<Document> scoreArray = new ArrayList<>();
+        toAdd.getScores().forEach(scoreEntity -> {
+            scoreArray.add(scoreEntityToDocument(scoreEntity));
+        });
+        document.put("scores", scoreArray);
         InsertOneResult result = gameRepository.insertOne(document);
         return Objects.requireNonNull(result.getInsertedId()).asObjectId().getValue();
     }
