@@ -5,7 +5,7 @@ public class ScoreCreateUpdateDTO {
     public ScoreCreateUpdateDTO(String playerName, int score, int numPLayer) {
         this.playerName = playerName;
         this.score = score;
-        this.numPLayer = numPLayer;
+        this.numPlayer = numPLayer;
     }
 
     public ScoreCreateUpdateDTO() {
@@ -15,7 +15,7 @@ public class ScoreCreateUpdateDTO {
 
     private int score;
 
-    private int numPLayer;
+    private int numPlayer;
 
     public String getPlayerName() {
         return playerName;
@@ -33,11 +33,11 @@ public class ScoreCreateUpdateDTO {
         this.score = score;
     }
 
-    public int getNumPLayer() {
-        return numPLayer;
+    public int getNumPlayer() {
+        return numPlayer;
     }
 
-    public void setNumPLayer(int numPLayer) {
-        this.numPLayer = numPLayer;
+    public void setNumPlayer(int numPLayer) {
+        this.numPlayer = numPLayer;
     }
 }

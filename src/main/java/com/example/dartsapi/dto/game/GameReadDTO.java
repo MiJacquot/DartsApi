@@ -1,5 +1,6 @@
 package com.example.dartsapi.dto.game;
 
+import com.example.dartsapi.dto.score.ScoreCreateUpdateDTO;
 import com.example.dartsapi.model.Score;
 
 import java.util.Date;
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class GameReadDTO extends GameCreateUpdateDTO {
 
-    public GameReadDTO(Date date, List<Score> scores, String status, int numPlayerRound, String id) {
+    public GameReadDTO(Date date, List<ScoreCreateUpdateDTO> scores, String status, int numPlayerRound, String id) {
         super(date, scores, status, numPlayerRound);
         this.id = id;
     }

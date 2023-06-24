@@ -1,5 +1,7 @@
 package com.example.dartsapi.dto.game;
 
+import com.example.dartsapi.dto.score.ScoreCreateUpdateDTO;
+import com.example.dartsapi.dto.score.ScoreReadDTO;
 import com.example.dartsapi.dto.user.UserReadDTO;
 import com.example.dartsapi.model.Score;
 
@@ -8,7 +10,7 @@ import java.util.List;
 
 public class GameCreateUpdateDTO {
 
-    public GameCreateUpdateDTO(Date date, List<Score> scores, String status, int numPlayerRound) {
+    public GameCreateUpdateDTO(Date date, List<ScoreCreateUpdateDTO> scores, String status, int numPlayerRound) {
         this.date = date;
         this.scores = scores;
         this.status = status;
@@ -20,7 +22,7 @@ public class GameCreateUpdateDTO {
 
     private Date date;
 
-    private List<Score> scores;
+    private List<ScoreCreateUpdateDTO> scores;
 
     private String userId;
 
@@ -37,11 +39,11 @@ public class GameCreateUpdateDTO {
         this.date = date;
     }
 
-    public List<Score> getScores() {
+    public List<ScoreCreateUpdateDTO> getScores() {
         return scores;
     }
 
-    public void setScores(List<Score> scores) {
+    public void setScores(List<ScoreCreateUpdateDTO> scores) {
         this.scores = scores;
     }
 
