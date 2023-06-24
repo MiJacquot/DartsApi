@@ -26,6 +26,7 @@ public class GameModelToEntityMapper {
             scoreEntityList.add(scoreModelToEntity(score));
         }
         entity.setScores(scoreEntityList);
+        entity.setNumberOfPlayers(game.getNumberOfPlayers());
         entity.setNumPlayerRound(game.getNumPlayerRound());
         entity.setStatus(game.getStatus());
         return entity;

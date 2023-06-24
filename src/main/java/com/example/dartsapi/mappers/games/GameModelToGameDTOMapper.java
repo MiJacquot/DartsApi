@@ -18,6 +18,7 @@ public class GameModelToGameDTOMapper {
         gameDTO.setDate(game.getDate());
         gameDTO.setScores(game.getScores());
         gameDTO.setStatus(game.getStatus());
+        gameDTO.setNumberOfPlayers(game.getNumberOfPlayers());
         gameDTO.setNumPlayerRound(game.getNumPlayerRound());
         return gameDTO;
     }
