@@ -36,11 +36,7 @@ public class GameRepository {
     }
     public ObjectId addOne(GameEntity toAdd) {
         Document document = gameEntityToDocument(toAdd);
-        List<Document> scoreArray = new ArrayList<>();
-        toAdd.getScores().forEach(scoreEntity -> {
-            scoreArray.add(scoreEntityToDocument(scoreEntity));
-        });
-        document.put("scores", scoreArray);
+
         InsertOneResult result = gameRepository.insertOne(document);
         return Objects.requireNonNull(result.getInsertedId()).asObjectId().getValue();
     }
