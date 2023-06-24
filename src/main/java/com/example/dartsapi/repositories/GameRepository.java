@@ -10,6 +10,7 @@ import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.example.dartsapi.mappers.DocumentToEntityMapper.mapDocumentToEntity;
 import static com.example.dartsapi.mappers.games.GameEntityToDocumentMapper.gameEntityToDocument;
@@ -35,7 +36,7 @@ public class GameRepository {
     public ObjectId addOne(GameEntity toAdd) {
         Document document = gameEntityToDocument(toAdd);
         InsertOneResult result = gameRepository.insertOne(document);
-        return result.getInsertedId().asObjectId().getValue();
+        return Objects.requireNonNull(result.getInsertedId()).asObjectId().getValue();
     }
 
 
