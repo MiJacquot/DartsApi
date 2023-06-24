@@ -1,6 +1,7 @@
 package com.example.dartsapi.mappers.games;
 
 import com.example.dartsapi.entities.GameEntity;
+import com.example.dartsapi.entities.ScoreEntity;
 import org.bson.Document;
 
 import java.util.ArrayList;
@@ -14,14 +15,20 @@ public class GameEntityToDocumentMapper {
         Document document = new Document();
         document.put("date", entity.getDate());
         document.put("userId", entity.getUserId());
-        List<Document> scoreArray = new ArrayList<>();
-        entity.getScores().forEach(scoreEntity -> {
-            scoreArray.add(scoreEntityToDocument(scoreEntity));
-        });
-        document.put("scores", scoreArray);
         document.put("status", entity.getStatus());
         document.put("numberOfPlayers", entity.getNumberOfPlayers());
         document.put("numPlayerRound", entity.getNumPlayerRound());
+
+        List<Document> scoreDocuments = new ArrayList<>();
+        for (ScoreEntity scoreEntity : entity.getScores()) {
+            Document scoreDocument = new Document();
+            scoreDocument.put("playerName", scoreEntity.getPlayerName());
+            scoreDocument.put("score", scoreEntity.getScore());
+            scoreDocument.put("numPlayer", scoreEntity.getNumPlayer());
+            scoreDocuments.add(scoreDocument);
+        }
+        document.put("scores", scoreDocuments);
+
         return document;
     }
 
