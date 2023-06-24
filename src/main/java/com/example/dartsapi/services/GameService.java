@@ -17,9 +17,9 @@ public class GameService {
 
     private final GameRepository gameRepository = new GameRepository();
 
-    public List<Game> findAllByUser(User user) {
+    public List<Game> findAllByUser(String userId) {
         List<Game> games = new ArrayList<>();
-        List<GameEntity> gamesEntities = gameRepository.findAllByUser(userModelToEntity(user));
+        List<GameEntity> gamesEntities = gameRepository.findAllByUserId(new ObjectId(userId));
         gamesEntities.forEach((gameEntity) -> {
             games.add(gameEntityToGame(gameEntity));
         });

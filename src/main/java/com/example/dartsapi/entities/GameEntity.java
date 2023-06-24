@@ -22,11 +22,13 @@ public class GameEntity {
 
     private Date date;
 
-    private UserEntity userEntity;
+    private ObjectId userId;
 
     private List<ScoreEntity> scores;
 
     private String status;
+
+    private int numberOfPlayers;
 
     private int numPlayerRound;
 
@@ -70,11 +72,19 @@ public class GameEntity {
         this.numPlayerRound = numPlayerRound;
     }
 
-    public UserEntity getUserEntity() {
-        return userEntity;
+    public ObjectId getUserId() {
+        return userId;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
+    public void setUserId(ObjectId userId) {
+        this.userId = userId;
+    }
+
+    public int getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
+    public void setNumberOfPlayers(int numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
     }
 }

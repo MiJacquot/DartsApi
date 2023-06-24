@@ -3,6 +3,7 @@ package com.example.dartsapi.controllers;
 import com.example.dartsapi.dto.game.GameCreateUpdateDTO;
 import com.example.dartsapi.dto.game.GameReadDTO;
 import com.example.dartsapi.model.Game;
+import com.example.dartsapi.model.Score;
 import com.example.dartsapi.model.User;
 import com.example.dartsapi.services.GameService;
 import com.example.dartsapi.services.UserService;
@@ -25,7 +26,7 @@ public class GameController {
     public List<GameReadDTO> findAll(@PathVariable("username") String username) {
         User loggedUser = userService.getOneByUsername(username);
         List<GameReadDTO> gamesDTO = new ArrayList<>();
-        List<Game> games = gameService.findAllByUser(loggedUser);
+        List<Game> games = gameService.findAllByUser(loggedUser.getId());
         games.forEach((game) -> {
             gamesDTO.add(gameModelToDto(game));
         });

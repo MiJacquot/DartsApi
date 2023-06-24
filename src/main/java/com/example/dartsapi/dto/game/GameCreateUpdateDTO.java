@@ -22,10 +22,11 @@ public class GameCreateUpdateDTO {
 
     private List<Score> scores;
 
-    private UserReadDTO userDTO;
+    private String userId;
 
     private String status;
 
+    private int numberOfPlayers;
     private int numPlayerRound;
 
     public Date getDate() {
@@ -60,11 +61,19 @@ public class GameCreateUpdateDTO {
         this.numPlayerRound = numPlayerRound;
     }
 
-    public UserReadDTO getUserDTO() {
-        return userDTO;
+    public int getNumberOfPlayers() {
+        return numberOfPlayers;
     }
 
-    public void setUserDTO(UserReadDTO userDTO) {
-        this.userDTO = userDTO;
+    public void setNumberOfPlayers(int numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

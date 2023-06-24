@@ -20,12 +20,13 @@ public class Game {
 
     private Date date;
 
-    private User user;
+    private String userId;
 
     private List<Score> scores;
 
     private String status;
 
+    private int numberOfPlayers;
     private int numPlayerRound;
 
     public String getId() {
@@ -68,11 +69,19 @@ public class Game {
         this.numPlayerRound = numPlayerRound;
     }
 
-    public User getUser() {
-        return user;
+    public int getNumberOfPlayers() {
+        return numberOfPlayers;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setNumberOfPlayers(int numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
