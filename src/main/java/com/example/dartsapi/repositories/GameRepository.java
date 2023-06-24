@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.example.dartsapi.mappers.DocumentToEntityMapper.mapDocumentToEntity;
+import static com.example.dartsapi.mappers.games.DocumentToGameEntityMapper.documentToGameEntity;
 import static com.example.dartsapi.mappers.games.GameEntityToDocumentMapper.gameEntityToDocument;
 import static com.example.dartsapi.mappers.scores.ScoreEntityToDocument.scoreEntityToDocument;
 import static com.mongodb.client.model.Filters.eq;
@@ -30,7 +31,7 @@ public class GameRepository {
     public List<GameEntity> findAllByUserId(ObjectId userId) {
         List<GameEntity> games = new ArrayList<>();
         gameRepository.find(eq("userId", userId)).sort(ascending("date")).forEach(document -> {
-            games.add(mapDocumentToEntity(document, GameEntity.class));
+            games.add(documentToGameEntity(document));
         });
         return games;
     }
