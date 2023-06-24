@@ -8,7 +8,6 @@ public class ScoreEntityToModelMapper {
 
     public static Score scoreEntityToModel(ScoreEntity entity) {
         Score score = new Score();
-        score.setId(entity.getId().toHexString());
         score.setScore(entity.getScore());
         score.setNumPlayer(entity.getNumPlayer());
         score.setPlayerName(entity.getPlayerName());
