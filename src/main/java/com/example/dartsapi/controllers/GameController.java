@@ -1,5 +1,6 @@
 package com.example.dartsapi.controllers;
 
+import com.example.dartsapi.dto.game.GameCreateUpdateDTO;
 import com.example.dartsapi.dto.game.GameReadDTO;
 import com.example.dartsapi.model.Game;
 import com.example.dartsapi.model.User;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.dartsapi.mappers.games.GameDTOToModelMapper.gameDtoToModel;
+import static com.example.dartsapi.mappers.games.GameDTOToModelMapper.gameCreateDtoToModel;
+import static com.example.dartsapi.mappers.games.GameDTOToModelMapper.gameReadDtoToModel;
 import static com.example.dartsapi.mappers.games.GameModelToGameDTOMapper.gameModelToDto;
 
 @RestController
@@ -31,13 +33,13 @@ public class GameController {
     }
 
     @PostMapping(path = "games/add")
-    public boolean addOneGame(@RequestBody GameReadDTO dto) {
-        return gameService.addOneGame(gameDtoToModel(dto));
+    public boolean addOneGame(@RequestBody GameCreateUpdateDTO dto) {
+        return gameService.addOneGame(gameCreateDtoToModel(dto));
     }
 
     @PatchMapping(path = "game/{id}")
     public boolean updateOneGame(@RequestBody GameReadDTO dto) {
-        return gameService.updateOneGame(gameDtoToModel(dto));
+        return gameService.updateOneGame(gameReadDtoToModel(dto));
     }
 
 }
