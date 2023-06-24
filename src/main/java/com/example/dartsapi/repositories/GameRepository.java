@@ -34,7 +34,6 @@ public class GameRepository {
     }
     public ObjectId addOne(GameEntity toAdd) {
         Document document = gameEntityToDocument(toAdd);
-        document.append("userId", toAdd.getUserId());
         InsertOneResult result = gameRepository.insertOne(document);
         return result.getInsertedId().asObjectId().getValue();
     }
