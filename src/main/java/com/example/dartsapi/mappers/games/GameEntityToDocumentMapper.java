@@ -9,7 +9,7 @@ public class GameEntityToDocumentMapper {
         Document document = new Document();
         document.put("date", entity.getDate());
         document.put("userId", entity.getUserId());
-        document.put("scores", entity.getScores());
+        document.append("scores", entity.getScores());
         document.put("status", entity.getStatus());
         document.put("numberOfPlayers", entity.getNumberOfPlayers());
         document.put("numPlayerRound", entity.getNumPlayerRound());
