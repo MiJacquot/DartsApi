@@ -8,7 +8,7 @@ import com.example.dartsapi.mappers.users.UserEntityToModelMapper;
 import com.example.dartsapi.model.User;
 import com.example.dartsapi.repositories.PlayerRepository;
 import com.example.dartsapi.repositories.UserRepository;
-
+import org.bson.types.ObjectId;
 
 
 import static com.example.dartsapi.mappers.users.UserDTOToUserMapper.createDtoToUser;
@@ -57,7 +57,13 @@ public class UserService {
     }
 
     public String authenticate(String email, String password) {
-        return userRepository.checkIfUserExists(email, password).toHexString();
+        ObjectId result = userRepository.checkIfUserExists(email, password);
+        if (result == null) {
+            return null;
+        } else {
+            return userRepository.checkIfUserExists(email, password).toHexString();
+        }
+
     }
 
 
