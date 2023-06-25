@@ -13,7 +13,7 @@ public class UserEntityToDocumentMapper {
         document.put("email", entity.getEmail());
         document.put("password", entity.getPassword());
         if (entity.getPlayerIds() != null) {
-            document.put("playerIds", entity.getPlayerIds());
+            document.put("players", entity.getPlayerIds());
         }
 
         return document;
