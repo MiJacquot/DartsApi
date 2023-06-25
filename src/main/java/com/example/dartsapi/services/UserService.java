@@ -47,7 +47,13 @@ public class UserService {
     }
 
     public User getOneByEmail(String email) {
-        return mapper.userEntityToUser(userRepository.getUserByEmail(email));
+        UserEntity user = userRepository.getUserByEmail(email);
+        if (user != null) {
+            return mapper.userEntityToUser(userRepository.getUserByEmail(email));
+        } else {
+            return null;
+        }
+
     }
 
     public boolean authenticate(String email, String password) {
