@@ -3,6 +3,7 @@ package com.example.dartsapi.controllers;
 import com.example.dartsapi.dto.user.UserCreateDTO;
 import com.example.dartsapi.dto.user.UserLoginDTO;
 import com.example.dartsapi.dto.user.UserReadDTO;
+import com.example.dartsapi.model.User;
 import com.example.dartsapi.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,13 @@ public class UserController {
 
     @GetMapping(path = "users/email/{email}")
     public UserReadDTO getOneByEmail(@PathVariable("email") String email) {
-        return userToReadDTO(us.getOneByEmail(email));
+        User user = us.getOneByEmail(email);
+        if (user != null) {
+            return userToReadDTO(us.getOneByEmail(email));
+        } else {
+            return null;
+        }
+
     }
 
     @PostMapping(path = "users/add")
