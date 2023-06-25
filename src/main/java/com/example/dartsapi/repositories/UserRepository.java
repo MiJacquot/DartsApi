@@ -54,8 +54,8 @@ public class UserRepository {
         return true;
     }
 
-    public UserEntity getUserByUsername(String username) {
-        Bson matchUsernameStage = match(eq("username", username));
+    public UserEntity getUserByEmail(String email) {
+        Bson matchUsernameStage = match(eq("email", email));
         Document result = userRepository.aggregate(asList(matchUsernameStage)).first();
         if(result != null) {
             return mapDocumentToEntity(result, UserEntity.class);

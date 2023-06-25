@@ -7,9 +7,9 @@ import java.util.List;
 
 public class User {
 
-    public User(String id, String username, String password, List<Player> players) {
+    public User(String id, String email, String password, List<Player> players) {
         this.id = id;
-        this.username = username;
+        this.email = email;
         this.password = password;
         this.players = players;
     }
@@ -24,7 +24,7 @@ public class User {
 
     private String id;
 
-    private String username;
+    private String email;
 
     private String password;
 
@@ -38,12 +38,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

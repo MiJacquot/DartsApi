@@ -8,7 +8,7 @@ public class UserDTOToUserMapper {
 
     public static User createDtoToUser(UserCreateDTO dto) {
         User user = new User();
-        user.setUsername(dto.getUsername());
+        user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword());
         for (Player player : dto.getPlayers()) {
             user.getPlayers().add(player);

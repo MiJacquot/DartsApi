@@ -46,8 +46,8 @@ public class UserService {
         return userRepository.addOnePlayerToUser(userId, playerId);
     }
 
-    public User getOneByUsername(String username) {
-        return mapper.userEntityToUser(userRepository.getUserByUsername(username));
+    public User getOneByEmail(String email) {
+        return mapper.userEntityToUser(userRepository.getUserByEmail(email));
     }
 
     public boolean authenticate(String username, String password) {

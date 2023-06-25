@@ -9,7 +9,7 @@ public class UserToDTOMapper {
         UserReadDTO dto = new UserReadDTO();
         dto.setId(user.getId());
         dto.setPassword(user.getPassword());
-        dto.setUsername(user.getUsername());
+        dto.setEmail(user.getEmail());
         dto.setPlayers(user.getPlayers());
         return dto;
     }

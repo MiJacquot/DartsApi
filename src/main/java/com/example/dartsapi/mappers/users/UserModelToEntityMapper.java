@@ -12,7 +12,7 @@ public class UserModelToEntityMapper {
         if (user.getId() != null) {
             entity.setId(new ObjectId(user.getId()));
         }
-        entity.setUsername(user.getUsername());
+        entity.setEmail(user.getEmail());
         entity.setPassword(user.getPassword());
         for (Player player : user.getPlayers()) {
             entity.getPlayerIds().add(new ObjectId(player.getId()));

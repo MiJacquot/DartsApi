@@ -7,10 +7,10 @@ import java.util.List;
 
 public class UserEntity {
 
-    public UserEntity(ObjectId id, String username, String password) {
+    public UserEntity(ObjectId id, String email, String password) {
         this.id = id;
         this.password = password;
-        this.username = username;
+        this.email = email;
         this.playerIds = new ArrayList<>();
     }
 
@@ -20,7 +20,7 @@ public class UserEntity {
 
     private ObjectId id;
 
-    private String username;
+    private String email;
 
     private String password;
 
@@ -50,11 +50,11 @@ public class UserEntity {
         this.playerIds = playerIds;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

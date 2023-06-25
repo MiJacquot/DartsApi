@@ -19,9 +19,9 @@ public class UserController {
         return userToReadDTO(us.findOneById(id));
     }
 
-    @GetMapping(path = "users/username/{username}")
-    public UserReadDTO getOneByUsername(@PathVariable("username") String username) {
-        return userToReadDTO(us.getOneByUsername(username));
+    @GetMapping(path = "users/email/{email}")
+    public UserReadDTO getOneByEmail(@PathVariable("email") String email) {
+        return userToReadDTO(us.getOneByEmail(email));
     }
 
     @PostMapping(path = "users/add")

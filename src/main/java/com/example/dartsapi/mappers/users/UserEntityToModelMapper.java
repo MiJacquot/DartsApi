@@ -18,7 +18,7 @@ public class UserEntityToModelMapper {
     public User userEntityToUser(UserEntity entity) {
         User userToReturn = new User();
         userToReturn.setId(entity.getId().toHexString());
-        userToReturn.setUsername(entity.getUsername());
+        userToReturn.setEmail(entity.getEmail());
         userToReturn.setPassword(entity.getPassword());
         for (ObjectId id : entity.getPlayerIds()) {
             userToReturn.getPlayers().add(playerEntityToPlayer(this.playerRepository.findOneById(id.toHexString())));
