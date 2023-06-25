@@ -64,11 +64,16 @@ public class UserRepository {
         }
     }
 
-    public boolean checkIfUserExists(String email, String password) {
+    public ObjectId checkIfUserExists(String email, String password) {
         Bson matchEmailStage = match(eq("email", email));
         Bson matchPasswordStage = match(eq("password", password));
         Document result = userRepository.aggregate(asList(matchEmailStage, matchPasswordStage)).first();
-        return result != null;
+        if (result != null) {
+            return result.getObjectId("_id");
+        } else {
+            return null;
+        }
+
     }
 
 

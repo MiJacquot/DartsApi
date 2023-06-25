@@ -56,8 +56,8 @@ public class UserService {
 
     }
 
-    public boolean authenticate(String email, String password) {
-        return userRepository.checkIfUserExists(email, password);
+    public String authenticate(String email, String password) {
+        return userRepository.checkIfUserExists(email, password).toHexString();
     }
 
 

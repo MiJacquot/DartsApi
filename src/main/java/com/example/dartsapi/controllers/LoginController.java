@@ -12,7 +12,7 @@ public class LoginController {
     private UserService us = new UserService();
 
     @PostMapping(path = "/login", consumes = "application/json")
-    public boolean canAccess(@RequestBody UserLoginDTO dto) {
+    public String canAccess(@RequestBody UserLoginDTO dto) {
         return us.authenticate(dto.getEmail(), dto.getPassword());
     }
 }
