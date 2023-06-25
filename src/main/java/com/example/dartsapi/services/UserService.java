@@ -50,8 +50,8 @@ public class UserService {
         return mapper.userEntityToUser(userRepository.getUserByEmail(email));
     }
 
-    public boolean authenticate(String username, String password) {
-        return userRepository.checkIfUserExists(username, password);
+    public boolean authenticate(String email, String password) {
+        return userRepository.checkIfUserExists(email, password);
     }
 
 

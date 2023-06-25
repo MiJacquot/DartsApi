@@ -64,10 +64,10 @@ public class UserRepository {
         }
     }
 
-    public boolean checkIfUserExists(String username, String password) {
-        Bson matchUsernameStage = match(eq("username", username));
+    public boolean checkIfUserExists(String email, String password) {
+        Bson matchEmailStage = match(eq("email", email));
         Bson matchPasswordStage = match(eq("password", password));
-        Document result = userRepository.aggregate(asList(matchUsernameStage, matchPasswordStage)).first();
+        Document result = userRepository.aggregate(asList(matchEmailStage, matchPasswordStage)).first();
         return result != null;
     }
 
